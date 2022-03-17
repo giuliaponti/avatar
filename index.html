@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prova 5 avatar</title>
+       <link rel="stylesheet" href="main2.css">
+       <style type="text/css">
+           .interfaccia {
+               background-color: rgba(100, 200, 255, 0.3);
+               position: absolute;
+               right: 0;
+               top: 0;
+               bottom: 0;
+               padding: 15px;
+               width: 200px;
+           }
+           .interfaccia input {
+               width: 100%;
+           }
+
+           .interfaccia input[type=range] {
+               height: 1px;
+               appearance: none;
+               -webkit-appearance: none;
+               border-top: 3em;
+               background-color: black;
+                display: block;
+           }
+
+           .interfaccia select {
+               width: 100%;
+               display: block;
+               margin-bottom: 3em;
+           }
+           .interfaccia label {
+               margin-top: 1em;
+               display: block;
+           }
+       </style>
+    </head>
+
+    <body>
+        <div class="contenitore">
+            <div class="layer faccia">
+                <img src="assets_2/faccia_0.png" alt="">
+            </div>
+            <div class="layer bocca">
+                <img src="assets_2/bocca_0.png" alt="">
+            </div>
+            <div class="layer naso">
+                <img src="assets_2/naso_0.png" alt="">
+            </div>
+            <div class="layer occhio occhio-sx">
+                <img src="assets_2/occhio-sx_0.png" alt="">
+            </div>
+            
+            <div class="layer occhio occhio-dx">
+                <img src="assets_2/occhio-dx_0.png" alt="">
+            </div>
+          </div>
+
+        <div class="interfaccia">
+            <label for="#input-volto">volto</label>
+            <select id="input-volto">
+                <option value="0">quadrato</option>
+                <option value="1">cerchio</option>
+                <option value="2">verticale</option>
+                <option value="3">orizzontale</option>
+
+                
+                <label for="#input-occhio-sx">occhio sinistro</label>
+                <input id="input-occhio-sx" type="range" value="0" min="0" max="3" step="1">
+                
+                <label for="#input-occhio-dx">occhio destro</label>
+                <input id="input-occhio-dx" type="range" value="0" min="0" max="3" step="1">
+                
+                <label for="#input-naso">naso</label>
+                <input id="input-naso" type="range" value="0" min="0" max="3" step="1">
+
+                <label for="#input-bocca">bocca</label>
+                <input id="input-bocca" type ="text">
+
+            </select>
+
+
+        </div>
+
+        <script>
+
+            document.querySelector("#input-volto").addEventListener("change", function (e){
+                const v = e.target.value
+                document.querySelector(".faccia img").src = "assets_2/faccia_" + v + ".png"
+            })
+
+            document.querySelector("#input-naso").addEventListener("input", function(e){
+                const v = e.target.value
+                const imn = document.querySelector(".naso img")
+                imn.src = "assets_2/naso_" + v + ".png"
+            })
+
+            document.querySelector("#input-occhio-sx").addEventListener("input", function(e){
+                const v = e.target.value
+                const imos = document.querySelector(".occhio-sx img")
+                imos.src = "assets_2/occhio-sx_" + v + ".png"
+            })
+
+            document.querySelector("#input-occhio-dx").addEventListener("input", function(e){
+                const v = e.target.value
+                const imod = document.querySelector(".occhio-dx img")
+                imod.src = "assets_2/occhio-dx_" + v + ".png"
+            })
+         
+            document.querySelector("#input-bocca").addEventListener("input", function(e){
+                const v = e.target.value
+                console.log(v)
+                document.querySelector(".bocca img").src = "assets_2/bocca_" + v + ".png"
+            })
+        
+
+        </script>
+    </body>
+</html>
